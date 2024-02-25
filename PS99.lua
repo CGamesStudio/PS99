@@ -7,4 +7,4 @@ local localplayer = Window:NewTab("LocalPlayer")
 local lpsection = localplayer:NewSection("LocalPlayer")
 lpsection:NewSlider("Walkspeed", "SliderInfo", 500, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end
+end)
