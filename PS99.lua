@@ -25,6 +25,14 @@ noclipToggle = lpsection:NewToggle("Noclip", '"What does collision mean ?"', fun
     end
 end)
 
+lpsection:NewToggle("Disable Auto Jump", "For mobile users especially", function(state)
+        if state then
+            game.Players.LocalPlayer.AutoJumpEnabled = false
+        else
+            game.Players.LocalPlayer.AutoJumpEnabled = true
+        end
+    end)
+
 local othertab = Window:NewTab("Other Scripts")
 local otsection = othertab:NewSection("Other Scripts")
 
