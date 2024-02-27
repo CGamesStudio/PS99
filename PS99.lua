@@ -5,11 +5,11 @@ local Window = Library.CreateLib("Chris Hub", "DarkTheme")
 
 local localplayer = Window:NewTab("LocalPlayer")
 local lpsection = localplayer:NewSection("LocalPlayer")
-lpsection:NewSlider("Walkspeed", "Change your speed !", 500, 0, function(s)
+lpsection:NewSlider("Walkspeed", "Change your speed !", 500, 16, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
-lpsection:NewSlider("JumpPower", "Jump higher !", 500, 0, function(s)
+lpsection:NewSlider("JumpPower", "Jump higher !", 500, 16, function(s)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
