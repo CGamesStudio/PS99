@@ -1,10 +1,10 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Chris Hub", "DarkTheme")
 
--- localplayer
-
+-- Localplayer
 local localplayer = Window:NewTab("LocalPlayer")
 local lpsection = localplayer:NewSection("LocalPlayer")
+
 lpsection:NewSlider("Walkspeed", "Change your speed !", 500, 16, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
@@ -13,21 +13,17 @@ lpsection:NewSlider("JumpPower", "Jump higher !", 500, 16, function(s)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
-lpsection:NewToggle("Noclip", '"What does collision mean ?"', function(state)
-    if state then
-            while task.wait() do
-                for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    v.CanCollide = false
-                end
-            end
-        else
-            while task.wait() do
-                for _,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    v.CanCollide = true
-                end
+local noclipToggle
+noclipToggle = lpsection:NewToggle("Noclip", '"What does collision mean ?"', function(state)
+    while true do
+        for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+            if v:IsA("BasePart") then
+                v.CanCollide = not state
             end
         end
-    end)
+        wait(0.1)
+    end
+end)
 
 local othertab = Window:NewTab("Other Scripts")
 local otsection = othertab:NewSection("Other Scripts")
@@ -41,5 +37,5 @@ otsection:NewButton("Redz Hub", "OP Pet Simulator 99 Hub ! (Keyless)", function(
 end)
 
 otsection:NewButton("SkyHub", "OP Pet Simulator 99 Hub ! (Has a key system)", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/SKOIXLL/RIVERHUB-SKYHUB/main/WL.lua'))();
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SKOIXLL/RIVERHUB-SKYHUB/main/WL.lua'))()
 end)
